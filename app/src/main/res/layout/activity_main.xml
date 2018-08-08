@@ -9,6 +9,7 @@
     <Button
         android:layout_width="wrap_content"
         android:id="@+id/start_job"
+        android:layout_centerInParent="true"
         android:layout_height="wrap_content"
         android:text="Start job"/>
 
@@ -16,6 +17,9 @@
     <Button
         android:layout_width="wrap_content"
         android:id="@+id/end_job"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/start_job"
         android:layout_height="wrap_content"
         android:text="End job"/>
 

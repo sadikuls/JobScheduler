@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     public static final int JOBSCHEDULER_ID = 1001;
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         start_job = findViewById(R.id.start_job);
         end_job = findViewById(R.id.end_job);
 
+        start_job.setOnClickListener(this);
+        end_job.setOnClickListener(this);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.start_job:{
                 setmJobScheduler();
                 startJobScheduler();
+                Toast.makeText(this, "Scheduler started", Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.end_job:{
