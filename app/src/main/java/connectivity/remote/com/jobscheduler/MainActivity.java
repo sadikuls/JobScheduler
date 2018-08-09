@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.concurrent.TimeUnit;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     public static final int JOBSCHEDULER_ID = 1001;
     Button start_job;
@@ -53,7 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void setmJobScheduler(){
         ComponentName componentName = new ComponentName(this, JobSchedulerService.class);
         JobInfo.Builder builder = new JobInfo.Builder(JOBSCHEDULER_ID,componentName);
-        builder.setPeriodic(2000);
+        //jobscheduler will fire in every 5 min
+        builder.setPeriodic(TimeUnit.MINUTES.toMillis(5));
         builder.setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY);
         builder.setPersisted(true);
 
